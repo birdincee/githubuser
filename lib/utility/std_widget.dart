@@ -1,4 +1,5 @@
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:githublist/const/functions.dart';
 import 'package:githublist/model/model_repos.dart';
@@ -26,10 +27,16 @@ class StandardWidget{
   final Duration duration200m = const Duration(milliseconds: 200);
 
   Widget logoApp(){
+    double padding = 0.0;
+    if(kIsWeb){
+      padding = 10;
+    }else{
+      padding = 5;
+    }
     return Container(
       width: 50,
       height: 50,
-      margin: const EdgeInsets.symmetric(horizontal: 10),
+      margin: EdgeInsets.symmetric(horizontal: padding),
       padding: const EdgeInsets.all(3),
       decoration: const BoxDecoration(
         color: Colors.white,

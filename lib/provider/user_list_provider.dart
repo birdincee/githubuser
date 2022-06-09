@@ -4,6 +4,7 @@ import 'package:githublist/database/user_db.dart';
 import 'package:githublist/model/model_user.dart';
 import 'package:githublist/provider/api_call_provider.dart';
 import 'package:githublist/screen/user/detail/dialog_user_detail_web.dart';
+import 'package:githublist/screen/user/detail/user_detail_mobile.dart';
 import 'package:githublist/utility/std_widget.dart';
 
 class UserListProvider extends ApiCallProv {
@@ -69,7 +70,9 @@ class UserListProvider extends ApiCallProv {
     if(kIsWeb){
       DialogUserDetail(context: context).open(mdHead: mdHead);
     }else{
-
+      await Navigator.push(context, MaterialPageRoute(
+        builder: (_) => UserDetailMobile(mdHead: mdHead),
+      ));
     }
   }
 }
